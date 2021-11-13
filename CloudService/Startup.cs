@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Structures.Options;
+using Microsoft.Extensions.Options;
 
 namespace CloudService
 {
@@ -22,6 +24,7 @@ namespace CloudService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<DatabaseOption>(Configuration.GetSection("ConnectionString"));
             services.AddSingleton<IItemRepository, ItemRepository>();
             services.AddSingleton<IProcessItem, ProcessItem>();
             services.AddSwaggerGen(c =>
