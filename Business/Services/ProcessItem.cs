@@ -11,9 +11,14 @@ namespace Business.Services
         {
             _iitemRepository = iitemRepository;
         }
-        public async Task<long> AddItem(Item item)
+        public async Task<long> AddItemAsync(Item item)
         {
-            return await _iitemRepository.SaveToDb(item);
+            return await _iitemRepository.SaveToDbAsync(item);
+        }
+
+        public async Task<Item> GetByIdAsync(long id)
+        {
+            return await _iitemRepository.GetByIdAsync(id);
         }
     }
 }

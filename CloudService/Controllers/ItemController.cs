@@ -20,9 +20,15 @@ namespace CloudService.Controllers
         }
         
         [HttpPost]
-        public async Task<ActionResult<long>> Add(Item item)
+        public async Task<ActionResult<long>> AddAsync(Item item)
         {
-            return await _processItem.AddItem(item);
+            return await _processItem.AddItemAsync(item);
         }
-    }
+
+        [HttpGet]
+        public async Task<ActionResult<Item>> GetByIdAsync(long id)
+        {
+            return await _processItem.GetByIdAsync(id);
+        }
+    } 
 }

@@ -5,6 +5,7 @@ namespace Business.Services
 {
     public interface IProcessItem
     {
-        public Task<long> AddItem(Item item);
+        public Task<long> AddItemAsync(Item item);
+        public Task<Item> GetByIdAsync(long id);
     }
 }

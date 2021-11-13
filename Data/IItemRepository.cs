@@ -5,6 +5,7 @@ namespace Data
 {
     public interface IItemRepository
     {
-        public Task<long> SaveToDb(Item item);
+        public Task<long> SaveToDbAsync(Item item);
+        public Task<Item> GetByIdAsync(long id);
     }
 }
