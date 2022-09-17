@@ -25,8 +25,8 @@ namespace CloudService
         {
             services.AddControllers();
             services.Configure<DatabaseOption>(Configuration.GetSection("ConnectionString"));
-            services.AddSingleton<IItemRepository, ItemRepository>();
-            services.AddSingleton<IProcessItem, ProcessItem>();
+            services.AddSingleton<IGiftRepository, GiftRepository>();
+            services.AddSingleton<IGiftService, GiftService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -45,13 +45,9 @@ namespace CloudService
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

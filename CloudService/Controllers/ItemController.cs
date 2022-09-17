@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Business.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Structures;
 
 namespace CloudService.Controllers
 {
@@ -13,22 +8,16 @@ namespace CloudService.Controllers
     [Route("[controller]/[action]")]
     public class ItemController : ControllerBase
     {
-        private readonly IProcessItem _processItem;
-        public ItemController(IProcessItem processItem)
+        private readonly IGiftService _giftService;
+        public ItemController(IGiftService giftService)
         {
-            _processItem = processItem;
-        }
-        
-        [HttpPost]
-        public async Task<ActionResult<long>> AddAsync(Item item)
-        {
-            return await _processItem.AddItemAsync(item);
+            _giftService = giftService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<Item>> GetByIdAsync(long id)
+        [HttpPost]
+        public async Task<ActionResult<string>> GetName()
         {
-            return await _processItem.GetByIdAsync(id);
+            return await _giftService.GetName();
         }
     } 
 }
