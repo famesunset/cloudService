@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Structures;
 
 namespace Data
 {
     public interface IGiftRepository
     {
-        public Task<string> GetName();
+        public Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids);
+        public Task AddGiftAsync(Gift gift);
     }
 }

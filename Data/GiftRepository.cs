@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.SqlClient;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Npgsql;
@@ -18,24 +20,54 @@ namespace Data
             _options = options;
         }
 
-        public async Task<string> GetName()
+        public async Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids)
         {
-            string sql = @"select Name from Users";
-            string result = "";
+            string sql = @"select id, title, price, description, url, accumulated, isActive from gifts where id = ANY (@Id)";
+            IEnumerable<Gift> result = new List<Gift>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(_options.Value.Url))
+                using (NpgsqlConnection connection = new NpgsqlConnection(_options.Value.Url))
                 {
-                    result = await connection.QueryFirstOrDefaultAsync<string>(sql);
+                    result = await connection.QueryAsync<Gift>(sql, new
+                    {
+                        Id = ids?.ToArray()
+                    });
                 }
             }
             
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(JsonSerializer.Serialize(e));
             }
             
             return result;
+        }
+        
+        public async Task AddGiftAsync(Gift gift)
+        {
+            string sql = @"insert into gifts 
+                            (title, price, description, url, accumulated, isActive)
+                           values (@title, @price, @description, @url, @accumulated, @isActive)";
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(_options.Value.Url))
+                {
+                    await connection.ExecuteAsync(sql, new
+                    {
+                        title = gift.Title,
+                        price = gift.Price,
+                        description = gift.Description,
+                        url = gift.URL,
+                        accumulated = gift.Accumulated,
+                        isActive = gift.IsActive
+                    });
+                }
+            }
+            
+            catch (Exception e)
+            {
+                Console.WriteLine(JsonSerializer.Serialize(e));
+            }
         }
     }
 }

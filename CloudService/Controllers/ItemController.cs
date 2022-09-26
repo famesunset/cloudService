@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Business.Services;
 using Microsoft.AspNetCore.Mvc;
+using Structures;
 
 namespace CloudService.Controllers
 {
@@ -15,9 +17,15 @@ namespace CloudService.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<string>> GetName()
+        public async Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids)
         {
-            return await _giftService.GetName();
+            return await _giftService.GetGiftByIdAsync(ids);
+        }
+        
+        [HttpPost]
+        public async Task AddGiftAsync(Gift gift)
+        {
+            await _giftService.AddGiftAsync(gift);
         }
     } 
 }

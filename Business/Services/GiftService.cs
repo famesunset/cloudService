@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Data;
+using Structures;
 
 namespace Business.Services
 {
@@ -11,9 +13,14 @@ namespace Business.Services
             _igiftRepository = igiftRepository;
         }
 
-        public Task<string> GetName()
+        public Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids)
         {
-            return _igiftRepository.GetName();
+            return _igiftRepository.GetGiftByIdAsync(ids);
+        }
+
+        public Task AddGiftAsync(Gift gift)
+        {
+            return _igiftRepository.AddGiftAsync(gift);
         }
     }
 }
