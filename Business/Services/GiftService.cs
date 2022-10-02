@@ -13,14 +13,19 @@ namespace Business.Services
             _igiftRepository = igiftRepository;
         }
 
-        public Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids)
+        public Task<Gift> GetGiftByIdAsync(IdRequest id)
         {
-            return _igiftRepository.GetGiftByIdAsync(ids);
+            return _igiftRepository.GetGiftByIdAsync(id);
         }
 
-        public Task AddGiftAsync(Gift gift)
+        public Task<GiftResp> AddGiftAsync(Gift gift)
         {
             return _igiftRepository.AddGiftAsync(gift);
+        }
+
+        public Task<IEnumerable<Gift>> GetGiftByUserIdAsync(IdRequest r)
+        {
+            return _igiftRepository.GetGiftByUserIdAsync(r);
         }
     }
 }

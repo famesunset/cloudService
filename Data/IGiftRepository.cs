@@ -6,7 +6,8 @@ namespace Data
 {
     public interface IGiftRepository
     {
-        public Task<IEnumerable<Gift>> GetGiftByIdAsync(List<long> ids);
-        public Task AddGiftAsync(Gift gift);
+        public Task<Gift> GetGiftByIdAsync(IdRequest id);
+        public Task<GiftResp> AddGiftAsync(Gift gift);
+        public Task<IEnumerable<Gift>> GetGiftByUserIdAsync(IdRequest r);
     }
 }
