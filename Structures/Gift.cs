@@ -11,5 +11,6 @@ namespace Structures
         public string URL { get; set; }
         public double Accumulated { get; set; }
         public bool IsActive { get; set; }
+        public long UserId { get; set; }
     }
 }

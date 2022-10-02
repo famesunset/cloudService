@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Business.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ namespace CloudService.Controllers
     public class ItemController : ControllerBase
     {
         private readonly IGiftService _giftService;
+
         public ItemController(IGiftService giftService)
         {
             _giftService = giftService;
@@ -21,11 +23,18 @@ namespace CloudService.Controllers
         {
             return await _giftService.GetGiftByIdAsync(ids);
         }
-        
+
         [HttpPost]
         public async Task AddGiftAsync(Gift gift)
         {
             await _giftService.AddGiftAsync(gift);
         }
-    } 
+
+        [HttpPost]
+        public async Task AddName(Item item)
+        {
+            Console.WriteLine(item.Name);
+            int a = 3;
+        }
+} 
 }

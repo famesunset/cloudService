@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GTDMgcOglBz2dytOvLdh8YdYYYFtU6n7Npt5fzc29txSwnvTWMY7b4wpqS5i2Ko92Ji8g2f3NMUG7mwIUQtMqw==",
+  "dgSpecHash": "gn9c70WxyaSJ5CaJ32Lkw5oGud6yQ4hE2nQYbPvf2KCgMAVfOPwb2HiSiMwhQyFNsqcMoerjs6OaaqBvUbls6g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Structures\\Structures.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\C#Back\\cloudService\\Structures\\Structures.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lidiia\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Lidiia\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Lidiia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
   "logs": []
 }

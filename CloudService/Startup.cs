@@ -2,6 +2,7 @@ using Business.Services;
 using Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +36,7 @@ namespace CloudService
             {
                 options.AddDefaultPolicy(builder => builder.AllowAnyOrigin());
             });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,9 +51,14 @@ namespace CloudService
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHttpsRedirection();
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:3000")
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader());
             app.UseRouting();
-            app.UseCors();
+            //app.UseHttpsRedirection();
+            //app.UseMvc();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

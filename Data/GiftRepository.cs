@@ -46,8 +46,8 @@ namespace Data
         public async Task AddGiftAsync(Gift gift)
         {
             string sql = @"insert into gifts 
-                            (title, price, description, url, accumulated, isActive)
-                           values (@title, @price, @description, @url, @accumulated, @isActive)";
+                            (userid, title, price, description, url, accumulated, isActive)
+                           values (@userid, @title, @price, @description, @url, @accumulated, @isActive)";
             try
             {
                 using (NpgsqlConnection connection = new NpgsqlConnection(_options.Value.Url))
@@ -59,7 +59,8 @@ namespace Data
                         description = gift.Description,
                         url = gift.URL,
                         accumulated = gift.Accumulated,
-                        isActive = gift.IsActive
+                        isActive = gift.IsActive,
+                        userid = gift.UserId
                     });
                 }
             }

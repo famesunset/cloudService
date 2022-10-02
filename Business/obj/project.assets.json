@@ -1055,19 +1055,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\The Dev\\.nuget\\packages\\": {}
+    "C:\\Users\\Lidiia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Business\\Business.csproj",
+      "projectUniqueName": "D:\\C#Back\\cloudService\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Business\\Business.csproj",
-      "packagesPath": "C:\\Users\\The Dev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Business\\obj\\",
+      "projectPath": "D:\\C#Back\\cloudService\\Business\\Business.csproj",
+      "packagesPath": "C:\\Users\\Lidiia\\.nuget\\packages\\",
+      "outputPath": "D:\\C#Back\\cloudService\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\The Dev\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Lidiia\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1078,11 +1078,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Data\\Data.csproj": {
-              "projectPath": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Data\\Data.csproj"
+            "D:\\C#Back\\cloudService\\Data\\Data.csproj": {
+              "projectPath": "D:\\C#Back\\cloudService\\Data\\Data.csproj"
             },
-            "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Structures\\Structures.csproj": {
-              "projectPath": "C:\\Users\\The Dev\\RiderProjects\\cloudService2\\Structures\\Structures.csproj"
+            "D:\\C#Back\\cloudService\\Structures\\Structures.csproj": {
+              "projectPath": "D:\\C#Back\\cloudService\\Structures\\Structures.csproj"
             }
           }
         }
@@ -1101,16 +1101,31 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\The Dev\\.dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
