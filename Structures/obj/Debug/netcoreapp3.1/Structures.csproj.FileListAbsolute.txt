@@ -1,0 +1,10 @@
+D:\C#Back\cloudService\Structures\bin\Debug\netcoreapp3.1\Structures.deps.json
+D:\C#Back\cloudService\Structures\bin\Debug\netcoreapp3.1\Structures.dll
+D:\C#Back\cloudService\Structures\bin\Debug\netcoreapp3.1\Structures.pdb
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.csproj.AssemblyReference.cache
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.AssemblyInfoInputs.cache
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.AssemblyInfo.cs
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.csproj.CoreCompileInputs.cache
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.dll
+D:\C#Back\cloudService\Structures\obj\Debug\netcoreapp3.1\Structures.pdb

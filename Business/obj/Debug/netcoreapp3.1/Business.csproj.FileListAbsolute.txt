@@ -1,0 +1,15 @@
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Business.dll
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Business.pdb
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Data.dll
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Structures.dll
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Data.pdb
+D:\C#Back\cloudService\Business\bin\Debug\netcoreapp3.1\Structures.pdb
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.dll
+D:\C#Back\cloudService\Business\obj\Debug\netcoreapp3.1\Business.pdb
