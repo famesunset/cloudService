@@ -2,7 +2,7 @@
 
 namespace Structures
 {
-    public class GIftsRequest
+    public class IdGIftRequest
     {
         public List<long> Ids { get; set; }
     }

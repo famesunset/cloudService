@@ -13,19 +13,38 @@ namespace Business.Services
             _igiftRepository = igiftRepository;
         }
 
-        public Task<Gift> GetGiftByIdAsync(IdRequest id)
+        public async Task<GiftOutResp> GetGiftByIdAsync(IdRequest id)
         {
-            return _igiftRepository.GetGiftByIdAsync(id);
+            return await _igiftRepository.GetGiftByIdAsync(id);
         }
 
-        public Task<GiftResp> AddGiftAsync(Gift gift)
+        public async Task<GiftResp> AddGiftAsync(GiftReq gift)
         {
-            return _igiftRepository.AddGiftAsync(gift);
+            IEnumerable<GiftOutResp> userGifts = await _igiftRepository.GetGiftByUserIdAsync(new IdUserIdRequest()
+            {
+                Id = gift.UserId
+            });
+            bool isExist = false;
+            foreach (var g in userGifts)
+            {
+                if (g.Title.Equals(gift.Title) && g.Url.Equals(gift.URL))
+                {
+                    isExist = true;
+                }
+            }
+            if (isExist)
+            {
+                return new GiftResp
+                {
+                    Id = -1
+                };
+            }
+            return await _igiftRepository.AddGiftAsync(gift);
         }
 
-        public Task<IEnumerable<Gift>> GetGiftByUserIdAsync(IdRequest r)
+        public async Task<IEnumerable<GiftOutResp>> GetGiftByUserIdAsync(IdUserIdRequest r)
         {
-            return _igiftRepository.GetGiftByUserIdAsync(r);
+            return await _igiftRepository.GetGiftByUserIdAsync(r);
         }
     }
 }

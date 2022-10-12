@@ -19,28 +19,21 @@ namespace CloudService.Controllers
         }
 
         [HttpPost]
-        public async Task<Gift> GetGiftByIdAsync(IdRequest id)
+        public async Task<GiftOutResp> GetGiftByIdAsync(IdRequest id)
         {
             return await _giftService.GetGiftByIdAsync(id);
         }
         
         [HttpPost]
-        public async Task<IEnumerable<Gift>> GetGiftByUserIdAsync(IdRequest r)
+        public async Task<IEnumerable<GiftOutResp>> GetGiftByUserIdAsync(IdUserIdRequest r)
         {
             return await _giftService.GetGiftByUserIdAsync(r);
         }
 
         [HttpPost]
-        public async Task<ActionResult<GiftResp>> AddGiftAsync(Gift gift)
+        public async Task<ActionResult<GiftResp>> AddGiftAsync(GiftReq gift)
         {
             return Ok(await _giftService.AddGiftAsync(gift));
         }
-
-        [HttpPost]
-        public async Task AddName(Item item)
-        {
-            Console.WriteLine(item.Name);
-            int a = 3;
-        }
-} 
+    } 
 }

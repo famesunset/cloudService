@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
@@ -20,17 +21,17 @@ namespace Data
             _options = options;
         }
         
-        public async Task<IEnumerable<Gift>> GetGiftByUserIdAsync(IdRequest r)
+        public async Task<IEnumerable<GiftOutResp>> GetGiftByUserIdAsync(IdUserIdRequest r)
         {
-            string sql = @"select id, title, price, description, url, accumulated, isActive from gifts where userid = @userId";
-            IEnumerable<Gift> result = new List<Gift>();
+            string sql = @"select id, title, price, description, url, pic from gifts where userid = @Userid";
+            IEnumerable<GiftOutResp> result = new List<GiftOutResp>();
             try
             {
                 using (NpgsqlConnection connection = new NpgsqlConnection(_options.Value.Url))
                 {
-                    result = await connection.QueryAsync<Gift>(sql, new
+                    result = await connection.QueryAsync<GiftOutResp>(sql, new
                     {
-                        userid = r.Id
+                        Userid = r.Id
                     });
                 }
             }
@@ -40,18 +41,18 @@ namespace Data
                 Console.WriteLine(JsonSerializer.Serialize(e));
             }
             
-            return result;
+            return result.ToList();
         }
 
-        public async Task<Gift> GetGiftByIdAsync(IdRequest id)
+        public async Task<GiftOutResp> GetGiftByIdAsync(IdRequest id)
         {
-            string sql = @"select id, title, price, description, url, accumulated, isActive from gifts where id = @Id";
-            Gift result = new Gift();
+            string sql = @"select id, title, price, description, url, pic from gifts where id = @Id";
+            GiftOutResp result = new GiftOutResp();
             try
             {
                 using (NpgsqlConnection connection = new NpgsqlConnection(_options.Value.Url))
                 {
-                    result = await connection.QueryFirstOrDefaultAsync<Gift>(sql, new
+                    result = await connection.QueryFirstOrDefaultAsync<GiftOutResp>(sql, new
                     {
                         Id = id.Id
                     });
@@ -66,12 +67,12 @@ namespace Data
             return result;
         }
         
-        public async Task<GiftResp> AddGiftAsync(Gift gift)
+        public async Task<GiftResp> AddGiftAsync(GiftReq gift)
         {
             long addedId = 0;
             string sql = @"insert into gifts 
-                            (userid, title, price, description, url, accumulated, isActive)
-                           values (@userid, @title, @price, @description, @url, @accumulated, @isActive)
+                            (userid, title, price, description, url, pic)
+                           values (@userid, @title, @price, @description, @url, @pic)
                            RETURNING id;";
             try
             {
@@ -83,8 +84,7 @@ namespace Data
                         price = gift.Price,
                         description = gift.Description,
                         url = gift.URL,
-                        accumulated = gift.Accumulated,
-                        isActive = gift.IsActive,
+                        pic = gift.Pic,
                         userid = gift.UserId
                     });
                 }
